@@ -22,7 +22,7 @@
     const i18n = {
       en:{
         tag:"Community Health",
-        hero_title:"Gramin Sehat — Rural Health Assistant",
+        hero_title:"Medi Mitr — Rural Health Assistant",
         hero_sub:"Simple, fast and offline-friendly guidance for villages — with a built-in chatbot, reminders, and SOS alerts.",
         about_title:"About This Project",
         about_p1:"Gramin Sehat is designed for rural communities where internet can be slow and smartphones are shared. It keeps the interface simple, supports many Indian languages, and stores important tips on your device so you can read them even with poor connectivity.",
@@ -41,7 +41,7 @@
       },
       hi:{
         tag:"समुदाय स्वास्थ्य",
-        hero_title:"ग्रामीण सेहत — ग्राम स्वास्थ्य सहायक",
+        hero_title:"मेडी मित्र — ग्राम स्वास्थ्य सहायक",
         hero_sub:"गाँवों के लिए सरल और तेज़ मार्गदर्शन — चैटबॉट, रिमाइंडर और SOS अलर्ट के साथ।",
         about_title:"परियोजना के बारे में",
         about_p1:"ग्रामीण क्षेत्रों के लिए बनाया गया, जहाँ इंटरनेट धीमा हो सकता है और फोन साझा होते हैं। इंटरफ़ेस सरल है और मुख्य जानकारी आपके फ़ोन में सहेज़ी जाती है।",
@@ -59,7 +59,7 @@
         gallery_title: "स्वास्थ्य जागरूकता पोस्टर"
       },
       bn:{
-        hero_title:"গ্রামীণ স্বাস্থ্যের সহায়ক",
+        hero_title:"মেডি মিত্র — গ্রামীণ স্বাস্থ্য সহায়ক",
         hero_sub:"গ্রামাঞ্চলের জন্য সহজ, দ্রুত এবং অফলাইন-বন্ধুভাবাপন্ন নির্দেশনা।",
         about_title:"প্রকল্প সম্পর্কে",
         about_p1:"গ্রামীণ সম্প্রদায়ের জন্য ডিজাইন করা, যেখানে ইন্টারনেট ধীর হতে পারে এবং স্মার্টফোন শেয়ার করা হয়।",
