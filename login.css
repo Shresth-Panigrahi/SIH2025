@@ -1,0 +1,151 @@
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background Animation */
+body {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #00e5ff, #0077ff, #00ff95);
+  background-size: 600% 600%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Moving Gradient Effect */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glass Card */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-card {
+  width: 380px;
+  padding: 45px 35px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Title */
+.app-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #e5e5e5;
+  margin-bottom: 30px;
+}
+
+/* Input Fields */
+.input-group {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 14px;
+  font-size: 1rem;
+  color: #fff;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Floating Labels */
+.input-group input:focus,
+.input-group input:valid {
+  border-color: #00e5ff;
+  box-shadow: 0 0 10px #00e5ff;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -8px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #00e5ff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #00ffae, #00c6ff, #0077ff);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00f5ff, 0 0 30px #0077ff;
+}
+
+/* Footer */
+.footer-text {
+  font-size: 0.85rem;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.footer-text a {
+  color: #00e5ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
