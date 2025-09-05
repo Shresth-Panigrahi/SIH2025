@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
+  <title>Gramin Sehat — Rural Health Assistant</title>
+  <meta name="description" content="A simple, low-bandwidth health assistant for rural communities with chatbot, schedule & alerts, and feedback." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="container">
+    <div class="helpbar card">
+      <div class="toolbar">
+        <button id="themeToggle" class="btn" aria-pressed="false" title="Toggle light/dark">🌓 Theme</button>
+        <div class="controls">
+          <label class="sr-only" for="lang">Language</label>
+          <select id="lang" class="select" style="min-width:140px">
+            <option value="en" selected>English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="mr">मराठी</option>
+          </select>
+        </div>
+        <div class="controls">
+          <label class="sr-only" for="textSize">Text size</label>
+          <select id="textSize" class="select" style="min-width:140px">
+            <option value="16">Text: Normal</option>
+            <option value="18">Text: Large</option>
+            <option value="20">Text: Extra Large</option>
+          </select>
+        </div>
+        <button id="dataSaver" class="btn ghost" aria-pressed="false" title="Reduce images/animations">⏳ Data Saver</button>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <section class="card">
+        <span class="tag" data-i18n="tag">Community Health</span>
+        <h1 class="title" data-i18n="hero_title">Gramin Sehat — Rural Health Assistant</h1>
+        <p class="subtitle" data-i18n="hero_sub">
+          Simple, fast and offline-friendly guidance for villages — with a built-in chatbot, reminders, and SOS alerts.
+        </p>
+        <div class="toolbar">
+          <a href="#features" class="btn">Explore Features</a>
+          <a href="#schedule" class="btn secondary">Add Reminder</a>
+          <a href="#feedback" class="btn ghost">Send Feedback</a>
+        </div>
+        <div class="kpis" style="margin-top:14px">
+          <div class="kpi">
+            <b>Low Bandwidth</b>
+            <span class="muted" data-i18n="kpi1">Works with slow internet</span>
+          </div>
+          <div class="kpi">
+            <b>Multilingual</b>
+            <span class="muted" data-i18n="kpi2">Multiple Indian languages</span>
+          </div>
+          <div class="kpi">
+            <b>Offline Basics</b>
+            <span class="muted" data-i18n="kpi3">Core info cached</span>
+          </div>
+          <div class="kpi">
+            <b>Privacy First</b>
+            <span class="muted" data-i18n="kpi4">No account required</span>
+          </div>
+        </div>
+      </section>
+<!-- 🌟 SwasthAI Quick Features Section -->
+<section id="quick-features" class="quick-features">
+  <div class="container">
+    <h2 class="section-title">🌟 Quick Access</h2>
+    <p class="section-subtitle">All essential features, just one click away!</p>
+
+    <div class="features-grid">
+      <!-- Book Appointment -->
+      <div class="feature-card" onclick="scrollToSchedule()">
+        <div class="icon">📅</div>
+        <h3>Book Appointment</h3>
+        <p>Schedule your health checkups and consultations easily.</p>
+      </div>
+
+      <!-- Feedback -->
+      <div class="feature-card" onclick="scrollToFeedback()">
+        <div class="icon">📝</div>
+        <h3>Feedback</h3>
+        <p>Share your experience and help us improve our services.</p>
+      </div>
+
+      <!-- Health Alerts -->
+      <div class="feature-card" onclick="showAlerts()">
+        <div class="icon">📢</div>
+        <h3>Health Alerts</h3>
+        <p>Stay updated with the latest health news and awareness drives.</p>
+      </div>
+
+      <!-- AI Chat -->
+      <div class="feature-card" onclick="startChat()">
+        <div class="icon">💬</div>
+        <h3>AI Chat</h3>
+        <p>Talk to SwasthAI for instant health tips and guidance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <!-- Carousel: awareness images -->
+      <section class="card">
+        <div class="section-title">Health Awareness Gallery</div>
+        <div id="carousel" class="carousel" aria-roledescription="carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Slides use the generated images - ensure files exist in same folder -->
+            <div class="carousel-slide">
+              <img src="Good Health is the Best Wealth 🌱 _ Inspiring Healthy Living Quotes.jpg" alt="Health awareness poster 1">
+            </div>
+            <div class="carousel-slide">
+              <img src="A_web_page_for_SwasthAI,_an_AI-powered_healthcare_.png" alt="Health awareness poster 2">
+            </div>
+          </div>
+          <div class="carousel-indicators" id="carouselIndicators"></div>
+        </div>
+        <div class="carousel-nav" style="margin-top:14px;">
+          <button id="prevSlide" class="btn ghost">◀ Prev</button>
+          <button id="nextSlide" class="btn ghost">Next ▶</button>
+        </div>
+        <p class="small-note" style="margin-top:8px">Tap the arrows or indicators to view awareness posters. Use Data Saver mode to hide images on slow connections.</p>
+      </section>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- About / Detailed Explanation -->
+    <section id="about" class="card">
+      <h2 class="section-title" data-i18n="about_title">About This Project</h2>
+      <p data-i18n="about_p1">
+        Gramin Sehat is designed for rural communities where internet can be slow and smartphones are shared. It keeps the interface simple, supports many Indian languages, and stores important tips on your device so you can read them even with poor connectivity.
+      </p>
+      <p data-i18n="about_p2">
+        The built-in chatbot answers common health questions and can hand off to a human helper if needed. You can set medicine reminders, doctor-visit schedules, and quick SOS alerts for emergencies.
+      </p>
+
+      <div class="grid" style="grid-template-columns:1fr;gap:14px;margin-top:10px">
+        <div class="item"><span class="pill">📶 Low Data</span><span data-i18n="abt1" class="muted">Images are vector (SVG) and data saver mode reduces bandwidth.</span></div>
+        <div class="item"><span class="pill">🌗 Light/Dark</span><span data-i18n="abt2" class="muted">Comfortable reading in sunlight or at night.</span></div>
+        <div class="item"><span class="pill">🔔 Alerts</span><span data-i18n="abt3" class="muted">Set medicine & visit reminders; on-page alerts if notifications are blocked.</span></div>
+        <div class="item"><span class="pill">🗣️ Multilingual</span><span data-i18n="abt4" class="muted">Multiple Indian language support for UI and assistant.</span></div>
+        <div class="item"><span class="pill">📵 Works Offline*</span><span class="muted" data-i18n="abt5">Key info can be cached; chatbot requires internet.</span></div>
+      </div>
+    </section>
+    <!-- Floating Assistant Button -->
+<div id="assistant-btn" onclick="toggleAssistant()">🤖</div>
+
+
+  
+
+    <!-- Feature List -->
+    <section id="features" class="card">
+      <h2 class="section-title" data-i18n="feat_title">Key Features for Rural Users</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px">
+        <div class="card" style="padding:12px">
+          <b>☎️ Phone-first Design</b>
+          <p class="muted">Large touch targets, clear fonts, minimal typing.</p>
+        </div>
+        <div class="card" style="padding:12px">
+          <b>📜 Saved Tips</b>
+          <p class="muted">Essential health tips saved locally to read later.</p>
+        </div>
+        <div class="card" style="padding:12px">
+          <b>🧠 Simple Language</b>
+          <p class="muted">Short sentences, icons, and examples.</p>
+        </div>
+        <div class="card" style="padding:12px">
+          <b>📍 No Sign-up</b>
+          <p class="muted">Privacy-friendly; nothing shared unless you send it.</p>
+        </div>
+        
+        <div class="card" style="padding:12px">
+          <b>🤖 AI Chatbot</b>
+          <p class="muted">Answers common health questions; can connect to a human helper.</p>
+        </div>
+        <div class="card" style="padding:12px">
+          <b>⏰ Reminders & Alerts</b>
+          <p class="muted">Medicine times, doctor visits, and quick SOS alerts.</p>
+        </div>
+        <div class="card" style="padding:12px">
+          <b>🌐 Multilingual</b>
+          <p class="muted">UI and assistant in multiple Indian languages.</p>
+        </div>
+        <div class="card" style="padding:12px">
+          <b>🌓 Light/Dark Mode</b>
+          <p class="muted">Comfortable reading in sunlight or at night.</p>
+        </div>  
+      </div>
+    </section>
+   
+
+
+    <!-- Schedule -->
+    <section id="schedule" class="card">
+      <h2 class="section-title">Schedule & Reminders</h2>
+      <p class="muted">Add medicine times or clinic visits. We’ll remind you while the page is open.</p>
+      <div class="grid grid-2">
+        <form id="scheduleForm" class="card">
+          <label>Title
+            <input id="sch_title" class="input" placeholder="e.g., BP medicine" required />
+          </label>
+          <div class="grid" style="grid-template-columns:1fr 1fr">
+            <label>Date <input id="sch_date" type="date" class="input" required /></label>
+            <label>Time <input id="sch_time" type="time" class="input" required /></label>
+          </div>
+          <label>Notes
+            <textarea id="sch_notes" class="textarea" rows="3" placeholder="After food, 1 tablet"></textarea>
+          </label>
+          <div class="toolbar">
+            <button class="btn" type="submit">➕ Add Reminder</button>
+            <button id="notifyBtn" type="button" class="btn ghost">Enable Notifications</button>
+          </div>
+        </form>
+
+        <div class="card">
+          <h3 class="section-title">Upcoming</h3>
+          <table id="scheduleTable" aria-live="polite">
+            <thead><tr><th>When</th><th>Title</th><th>Notes</th><th>Action</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alerts -->
+    <section id="alerts" class="card">
+      <h2 class="section-title">Quick Alert</h2>
+      <p class="muted">Create a one-time alert in minutes from now (for boiling water, feeding cattle, etc.).</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <label>Alert message <input id="alert_msg" class="input" placeholder="Check the stove" /></label>
+          <label>Minutes from now <input id="alert_min" type="number" class="input" min="1" value="5" /></label>
+          <div class="toolbar">
+            <button id="alert_start" class="btn secondary" type="button">Start Alert</button>
+            <button id="alert_cancel" class="btn ghost" type="button">Cancel</button>
+          </div>
+          <p id="alert_status" class="muted"></p>
+        </div>
+
+        <!-- Another lightweight SVG -->
+        <div class="card svg-wrap" aria-label="Reminder illustration">
+          <svg viewBox="0 0 800 450">
+            <rect width="800" height="450" fill="#22d3ee" opacity=".12"/>
+            <g transform="translate(80,60)">
+              <circle cx="80" cy="80" r="60" fill="#f59e0b" opacity=".85"/>
+              <rect x="170" y="40" width="420" height="30" rx="12" fill="#93c5fd"/>
+              <rect x="170" y="80" width="360" height="18" rx="9" fill="#bfdbfe"/>
+              <rect x="170" y="108" width="260" height="18" rx="9" fill="#bfdbfe"/>
+              <rect x="20" y="180" width="570" height="30" rx="14" fill="#34d399"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback -->
+    <section id="feedback" class="card">
+      <h2 class="section-title">Feedback</h2>
+      <p class="muted">Help us improve for your village.</p>
+      <form id="feedbackForm" class="grid" style="grid-template-columns:1fr 1fr">
+        <label>Name <input id="fb_name" class="input" placeholder="Optional" /></label>
+        <label>Village/Town <input id="fb_place" class="input" /></label>
+        <label class="grid" style="grid-template-columns:1fr">
+          Rating
+          <div id="stars" role="radiogroup" aria-label="Rating from 1 to 5" class="toolbar"></div>
+        </label>
+        <label>Message <textarea id="fb_msg" class="textarea" rows="4" required placeholder="Tell us what worked or not"></textarea></label>
+        <div class="toolbar">
+          <button class="btn" type="submit">Submit</button>
+          <button class="btn ghost" type="reset">Reset</button>
+        </div>
+      </form>
+      <div id="feedbackList" class="list" style="margin-top:10px"></div>
+    </section>
+    <!-- Floating Assistant Button -->
+<div id="assistant-btn" onclick="toggleAssistant()">🤖</div>
+
+<!-- AI Assistant Popup -->
+<div id="assistant-popup" class="assistant-popup">
+  <h3 id="assistant-greeting">Hi! How can I help you today?</h3>
+  
+  <!-- Language Selector -->
+  <select id="language-selector" onchange="changeLanguage()">
+    <option value="en">English</option>
+    <option value="hi">हिन्दी</option>
+    <option value="bn">বাংলা</option>
+    <option value="ta">தமிழ்</option>
+    <option value="te">తెలుగు</option>
+    <option value="mr">मराठी</option>
+  </select>
+
+  <!-- New FAQ Button -->
+  <button onclick="showFAQ()">❓ FAQs</button>
+
+  <!-- New Contact Button -->
+  <a href="mailto:support.medimitra@gmail.com">
+    <button>📧 Contact Us</button>
+  </a>
+</div>
+
+
+
+
+    <!-- FAQ / Safety -->
+    <section class="card">
+      <h2 class="section-title">Safety & Notes</h2>
+      <ul>
+        <li>This assistant does not replace a doctor. For emergencies call local services immediately.</li>
+        <li>We store your reminders and feedback only on your device (localStorage).</li>
+        <li>Chatbot needs internet. If network is poor, use the saved tips or call a health worker.</li>
+      </ul>
+    </section>
+
+    <p class="footer">© 2025 Gramin Sehat • <a href="tel:+910000000000">Call Health Worker</a> • <a href="sms:+910000000000">Send SMS</a></p>
+  </main>
+
+  
+  <!-- Chat Panel -->
+  <aside id="chatPanel" class="chat-panel" aria-hidden="true" aria-label="Chat with AI assistant">
+    <div class="chat-head">
+      <strong>Chatbot</strong>
+      <div class="toolbar">
+        <button id="handOff" class="btn ghost" title="Call a person">👩‍⚕️ Human help</button>
+        <button id="closeChat" class="btn danger">✕</button>
+      </div>
+    </div>
+    <div id="chatBody" class="chat-body" tabindex="0" aria-live="polite"></div>
+    <form id="chatForm" class="chat-input">
+      <input id="chatInput" class="input" placeholder="Type your message…" autocomplete="off" />
+      <button class="btn" type="submit">Send</button>
+    </form>
+  </aside>
+
+  <!-- Walkthrough overlay & bubble -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+  <div id="spotlight" class="spotlight" style="display:none;"></div>
+  <div id="walkBubble" class="walk-bubble" role="dialog" aria-hidden="true"></div>
+</body>
+</html>
