@@ -20,5 +20,5 @@ form.addEventListener("submit", (e) => {
   localStorage.setItem("userPhone", phone);
 
   // Redirect to Medi Mitra main page
-  window.location.href = "index.html";
+  window.location.href = "main.html";
 });
