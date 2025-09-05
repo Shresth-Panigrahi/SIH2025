@@ -88,21 +88,21 @@
 }
 
 .kpi:hover {
-  background: linear-gradient(135deg, #ff7e5f, #ff416c); /* 🔴 red hover */
-  transform: translateY(-6px) scale(1.03);              /* enlarge on hover */
+  background: linear-gradient(135deg, #ff7e5f, #ff416c); 
+  transform: translateY(-6px) scale(1.03);            
   box-shadow: 0 12px 28px rgba(255, 65, 108, 0.45);
 }
 
 .kpi b {
-  font-size: 1.6rem;         /* bigger title */
+  font-size: 1.6rem;        
   font-weight: 700;
-  color: #000;              /* always black */
+  color: #000;            
 }
 
 .kpi p {
   margin-top: 10px;
   font-size: 1.1rem;  
-  color: #000 !important;   /* ✅ force black always */
+  color: #000 !important;   
 }
     .list{display:grid;gap:10px}
     .item{
