@@ -7,26 +7,32 @@
   <link rel="stylesheet" href="login.css" />
 </head>
 <body>
-  <!-- Animated Background -->
-  <div class="bg-animation"></div>
+  <!-- Background image -->
+  <div class="bg-overlay"></div>
+
+  <!-- Watermark -->
+  <h1 class="watermark">Medi Mitra</h1>
 
   <!-- Login Container -->
   <div class="login-container">
     <div class="login-card">
       <h1 class="app-title">Medi Mitra</h1>
-      <p class="tagline">Your Rural Health Companion</p>
+      <p class="tagline">Your Rural Health Assistant</p>
 
       <form id="loginForm">
+        <!-- Gmail Input -->
         <div class="input-group">
-          <input type="email" id="email" name="email" required />
-          <label for="email">Enter Gmail</label>
+          <label for="email">Gmail</label>
+          <input type="email" id="email" name="email" placeholder="Enter your Gmail" required />
         </div>
 
+        <!-- Phone Input -->
         <div class="input-group">
-          <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required />
-          <label for="phone">Enter Phone Number</label>
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" required />
         </div>
 
+        <!-- Login Button -->
         <button type="submit" class="login-btn">Login</button>
       </form>
 

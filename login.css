@@ -1,6 +1,3 @@
-/* Import Google Font */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-
 /* Reset */
 * {
   margin: 0;
@@ -9,143 +6,207 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Background Animation */
 body {
   height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(120deg, #00e5ff, #0077ff, #00ff95);
-  background-size: 600% 600%;
-  animation: gradientShift 15s ease infinite;
-}
-
-/* Moving Gradient Effect */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Glass Card */
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("istockphoto-1165046681-612x612.jpg") no-repeat center center/cover;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Dark overlay for better contrast */
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 20, 40, 0.8), rgba(0, 0, 0, 0.7));
+  z-index: 1;
+}
+
+/* Watermark */
+/* Watermark */
+.watermark {
+  position: absolute;
+  font-size: 6rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.05);
+  text-transform: uppercase;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 2;
+  animation: float 6s ease-in-out infinite, glowSweep 4s linear infinite;
+}
+
+/* Floating animation for watermark */
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -53%) scale(1.03);
+  }
+}
+
+/* Light sweep effect on watermark */
+@keyframes glowSweep {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 245, 255, 0.3),
+                 0 0 10px rgba(0, 245, 255, 0.2),
+                 0 0 15px rgba(0, 245, 255, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(0, 245, 255, 0.6),
+                 0 0 30px rgba(0, 245, 255, 0.4),
+                 0 0 50px rgba(0, 245, 255, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 245, 255, 0.3),
+                 0 0 10px rgba(0, 245, 255, 0.2),
+                 0 0 15px rgba(0, 245, 255, 0.1);
+  }
+}
+
+
+/* Floating animation for watermark */
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -52%) scale(1.02); }
+}
+
+/* Login Container */
+.login-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Login Card */
 .login-card {
   width: 380px;
-  padding: 45px 35px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(18px);
-  border-radius: 20px;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   text-align: center;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
-/* Title */
+/* App Title */
 .app-title {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #fff;
+  color: #ffffff;
 }
 
 .tagline {
   font-size: 1rem;
-  color: #e5e5e5;
-  margin-bottom: 30px;
+  color: #cfd8dc;
+  margin-bottom: 25px;
 }
 
-/* Input Fields */
+/* Inputs */
 .input-group {
-  position: relative;
-  margin-bottom: 28px;
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #eeeeee;
 }
 
 .input-group input {
   width: 100%;
-  padding: 14px 14px;
-  font-size: 1rem;
-  color: #fff;
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-radius: 12px;
+  padding: 12px 14px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: none;
   outline: none;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 1rem;
+  transition: 0.3s ease;
 }
 
-.input-group label {
-  position: absolute;
-  top: 50%;
-  left: 14px;
-  transform: translateY(-50%);
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.7);
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-
-/* Floating Labels */
-.input-group input:focus,
-.input-group input:valid {
-  border-color: #00e5ff;
-  box-shadow: 0 0 10px #00e5ff;
-}
-
-.input-group input:focus + label,
-.input-group input:valid + label {
-  top: -8px;
-  left: 10px;
-  font-size: 0.8rem;
-  color: #00e5ff;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 0 6px;
-  border-radius: 4px;
+.input-group input:focus {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 12px #00f5ff;
 }
 
 /* Button */
 .login-btn {
   width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, #00ffae, #00c6ff, #0077ff);
-  color: #fff;
+  padding: 12px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #00f5ff, #0077ff);
+  color: white;
   font-size: 1.1rem;
   font-weight: 600;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
 }
 
 .login-btn:hover {
+  background: linear-gradient(135deg, #0077ff, #00f5ff);
   transform: scale(1.05);
-  box-shadow: 0 0 15px #00f5ff, 0 0 30px #0077ff;
+  box-shadow: 0 0 25px rgba(0, 245, 255, 0.7);
 }
 
 /* Footer */
 .footer-text {
   font-size: 0.85rem;
-  color: #fff;
+  color: #bbbbbb;
   margin-top: 20px;
 }
 
 .footer-text a {
-  color: #00e5ff;
+  color: #00f5ff;
   text-decoration: none;
-  font-weight: 600;
 }
 
 .footer-text a:hover {
   text-decoration: underline;
 }
 
-/* Fade-in Animation */
+/* Fade In Animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* App Title */
+/* Animated Login Title */
+/* Animated Login Title - Red Gradient */
+.app-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(270deg, #ff4d4d, #ff1a1a, #990000, #ff1a1a, #ff4d4d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleGlow 6s ease-in-out infinite;
+  text-shadow: 0 0 15px rgba(255, 77, 77, 0.2);
+}
+
+/* Smooth gradient shift animation */
+@keyframes titleGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
